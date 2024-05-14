@@ -41,7 +41,7 @@ module "sonarqube" {
   subnet_id    = module.vpc.publicsub1
   keypair      = module.keypair.public-key-id
   name         = "${local.name}-sonarqube"
-  elb-subnets  = [module.vpc.publicsub1, module.vpc.publicsub2]
+  elb-subnets  = [module.vpc.publicsub1, module.vpc.publicsub2, module.vpc.privatesub3]
   cert-arn     = module.acm.acm_certificate
 }
 
@@ -72,7 +72,7 @@ module "jenkins" {
   key-name   = module.keypair.public-key-id
   name       = "${local.name}-jenkins"
   nexus-ip   = module.nexus.nexus_ip
-  subnet-elb = [module.vpc.publicsub1, module.vpc.publicsub2]
+  subnet-elb = [module.vpc.publicsub1, module.vpc.publicsub2, module.vpc.publicsub3]
   cert-arn   = module.acm.acm_certificate
 }
 module "ansible" {
@@ -104,7 +104,7 @@ module "monitoring" {
   subnet_id   = module.vpc.publicsub1
   keypair     = module.keypair.public-key-id
   name        = "${local.name}-promgraf"
-  elb-subnets = [module.vpc.publicsub1, module.vpc.publicsub2]
+  elb-subnets = [module.vpc.publicsub1, module.vpc.publicsub2, module.vpc.publicsub3]
   cert-arn    = module.acm.acm_certificate
 }
 
