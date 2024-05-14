@@ -61,7 +61,7 @@ module "nexus" {
   nexus-sg    = module.securitygroup.nexus_sg
   keyname     = module.keypair.public-key-id
   name        = "${local.name}-nexus"
-  elb-subnets = [module.vpc.publicsub1, module.vpc.publicsub2]
+  elb-subnets = [module.vpc.publicsub1, module.vpc.publicsub2, module.vpc.publicsub3]
   cert-arn    = module.acm.acm_certificate
 }
 module "jenkins" {
