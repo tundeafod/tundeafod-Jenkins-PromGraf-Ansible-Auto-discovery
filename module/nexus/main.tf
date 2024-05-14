@@ -1,6 +1,6 @@
 resource "aws_instance" "nexus_server" {
   ami                         = var.ami_redhat
-  instance_type               = "t2.xlarge"
+  instance_type               = "t2.medium"
   subnet_id                   = var.subnet_id
   key_name                    = var.keyname
   vpc_security_group_ids      = [var.nexus-sg]

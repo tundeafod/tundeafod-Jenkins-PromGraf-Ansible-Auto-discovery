@@ -29,7 +29,7 @@ resource "aws_security_group" "sonarqube_sg" {
 
   # Inbound Rules
   ingress {
-    description = "https port"
+    description = "ssh port"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -136,7 +136,7 @@ resource "aws_security_group" "nexus_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    description = "nexus port 1"
+    description = "nexus port"
     from_port   = 8081
     to_port     = 8081
     protocol    = "tcp"

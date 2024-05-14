@@ -1,5 +1,5 @@
 locals {
-  name = "Jenkins-Ansible-Auto-discovery1"
+  name = "Jenkins-Ansible-PromGraf-Auto-discovery"
 }
 
 data "aws_secretsmanager_secret_version" "afodsecret" {
