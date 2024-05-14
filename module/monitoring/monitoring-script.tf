@@ -26,6 +26,7 @@ sudo chown prometheus:prometheus /etc/prometheus
 sudo chown -R prometheus:prometheus /etc/prometheus/consoles
 sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
 sudo chown -R prometheus:prometheus /var/lib/prometheus
+sudo chmod 747 /etc/prometheus/prometheus.yml
 
 # create prometheus config file
 sudo cat <<EOT> /etc/prometheus/prometheus.yml
