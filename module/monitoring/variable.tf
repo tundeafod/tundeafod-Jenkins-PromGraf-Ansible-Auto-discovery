@@ -5,9 +5,9 @@ variable "subnet_id" {}
 variable "name" {}
 variable "elb-subnets" {}
 variable "cert-arn" {}
-variable "promgraf_ip" {}
 variable "nexus-ip" {}
 variable "jenkins_ip" {}
 variable "Sonarqube-ip" {}
 variable "ansible_ip" {}
-variable "region" {}
+
+

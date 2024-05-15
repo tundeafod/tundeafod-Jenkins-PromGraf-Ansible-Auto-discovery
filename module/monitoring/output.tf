@@ -14,6 +14,10 @@ output "graf_dns_name" {
   value = aws_elb.graf.dns_name
 }
 
+# output "monitoring_roles" {
+#   value = aws_iam_role.monitoring_role.name
+# }
+
 output "graf_zone_id" {
   value = aws_elb.graf.zone_id
 }
@@ -25,3 +29,4 @@ output "nodeexporter_dns_name" {
 output "nodeexporter_zone_id" {
   value = aws_elb.nodeexporter.zone_id
 }
+

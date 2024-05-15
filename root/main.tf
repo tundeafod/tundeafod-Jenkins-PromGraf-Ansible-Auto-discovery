@@ -2,6 +2,8 @@ locals {
   name = "Jenkins-Ansible-PromGraf-Auto-discovery"
 }
 
+
+
 data "aws_secretsmanager_secret_version" "afodsecret" {
   secret_id = "afodsecret"
 }
@@ -103,6 +105,10 @@ module "monitoring" {
   promgraf-sg = module.securitygroup.promgraf_sg
   subnet_id   = module.vpc.publicsub1
   keypair     = module.keypair.public-key-id
+  nexus-ip   = module.nexus.nexus_ip
+  jenkins_ip = module.jenkins.jenkins_ip
+  ansible_ip = module.ansible.ansible_ip
+  Sonarqube-ip = module.sonarqube.sonarqube_ip
   name        = "${local.name}-promgraf"
   elb-subnets = [module.vpc.publicsub1, module.vpc.publicsub2, module.vpc.publicsub3]
   cert-arn    = module.acm.acm_certificate

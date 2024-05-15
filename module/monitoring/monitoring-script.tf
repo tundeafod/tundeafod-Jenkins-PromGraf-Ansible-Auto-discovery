@@ -33,24 +33,19 @@ sudo cat <<EOT> /etc/prometheus/prometheus.yml
 global:
   scrape_interval: 15s
   external_labels:
-    monitor: 'prometheus'
+    monitor: "prometheus"
 
 scrape_configs:
-  - job_name: 'Infra node exporter'
+  - job_name: "prometheus"
+
+  - job_name: "infra_node_exporter"
     static_configs:
-      - targets: ['${var.promgraf_ip}:9100', '${var.nexus-ip}:9100', '${var.jenkins_ip}:9100', '${var.Sonarqube-ip}:9100''${var.ansible_ip}:9100']
-    relabel_configs:
-      - source_labels: [__meta_ec2_tag_Name]
-        target_label: instance
+      - targets: ["localhost:9100", "${var.nexus-ip}:9100", "${var.jenkins_ip}:9100", "${var.Sonarqube-ip}:9100", "${var.ansible_ip}:9100"]
 
-scrape_configs:
-  - job_name: 'ec2-service-discovery'
+  - job_name: "ec2-service-discovery"
     ec2_sd_configs:
       - region: eu-west-2
-        port: 9100  
-    relabel_configs:
-      - source_labels: [__meta_ec2_tag_Name]
-        target_label: instance
+        port: 9100
 EOT
 
 # cd 
